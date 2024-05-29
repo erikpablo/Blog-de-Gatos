@@ -27,6 +27,15 @@ html, input, body {
   max-width: calc(40rem + 2.2rem);
  }
 
+ img {
+  transition: all 400ms;  
+  filter: saturate(1.5);
+ }
+
+ img:hover {
+  scale: 1.03;
+ }
+
 body {
   font-size: 1.6rem;
   background: #F4FCFF;
@@ -111,13 +120,15 @@ body {
  }
 
  .details p {
-  font-size: 1.4rem;
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
  }
 
 
  footer {
   text-align: center;
   padding: 1.6rem 2.7rem;
+  margin-top: 4rem;
 
   background-color: var(--color-input-footer);
  }
@@ -127,5 +138,100 @@ body {
   color: var(--color-white);
  }
 
+ /* desktop */
 
+@media (min-width: 1400px) {
+  .page {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "main aside"
+    "footer footer";
+
+    gap: 4.4rem 3.4rem;
+  }
+
+  header .container,
+  .container-02 {
+    max-width: initial;
+    margin: initial;
+    padding: initial;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  header .container {
+    max-width: 121.6rem;
+    margin-inline: auto;
+  }
+
+  header form, 
+  .input-wrapper {
+    flex: 1;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  main.container-02 {
+    max-width: 80rem;
+    margin-left: auto;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .like, .like img {
+    margin: initial;
+    padding-left: 1rem;
+  }
+
+  aside {
+    grid-area: aside;
+  } 
+
+  .sidebar h1 {
+    margin: 0 0 3rem;
+  }
+
+  aside.container-02 {
+    max-width: 38.4rem;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
  
+
+header {
+  animation: fromtop 600ms 100ms backwards;
+}
+
+main, aside {
+  animation: frombottom 600ms 400ms backwards;
+}
+
+@keyframes fromtop{
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes frombottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
